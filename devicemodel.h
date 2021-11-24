@@ -3,11 +3,13 @@
 
 #include <QLabel>
 #include <QLineEdit>
+#include <QJsonDocument>
+#include <QJsonValue>
+#include <QJsonArray>
+#include <QJsonObject>
 
 #include "ceres/ceres.h"
 #include "glog/logging.h"
-
-#include "template.h"
 
 using ceres::AutoDiffCostFunction;
 using ceres::CostFunction;
@@ -42,7 +44,8 @@ enum eTriodeParameter {
 class DeviceModel
 {
 public:
-    DeviceModel(int _modelType, int _model);
+    DeviceModel(int _modelDeviceType);
+    DeviceModel(QJsonDocument model);
 
     double getParameter(int index) const;
 
@@ -55,10 +58,13 @@ public:
 
     void updateUI(QLabel *labels[], QLineEdit *values[]);
 
+    int getModelType() const;
+    void setModelType(int newModelType);
+
 private:
     Problem problem;
-    int modelType = MODEL_TRIODE;
-    int model = IMPROVED_KOREN_TRIODE;
+    int modelDeviceType = MODEL_TRIODE;
+    int modelType = IMPROVED_KOREN_TRIODE;
 
     // Model variables
     QString parameterName[8];
