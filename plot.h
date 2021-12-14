@@ -1,5 +1,4 @@
-#ifndef PLOT_H
-#define PLOT_H
+#pragma once
 
 #include <QGraphicsScene>
 #include <QGraphicsLineItem>
@@ -28,5 +27,3 @@ private:
     double xStop;
     double yStop;
 };
-
-#endif // PLOT_H

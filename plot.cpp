@@ -36,7 +36,11 @@ void Plot::setAxes(double _xStart, double _xStop, double xMajorDivision, double 
         if (xLabelEvery == 0 || (i % xLabelEvery) == 0) {
             QGraphicsTextItem *text;
             char labelText[16];
-            sprintf(labelText, "%d", (int) (x + rounding));
+            if (xMajorDivision < 1.0) {
+                sprintf(labelText, "%f.1", x);
+            } else {
+                sprintf(labelText, "%d", (int) (x + rounding));
+            }
             text = scene->addText(labelText);
             double offset = 6.0 * strlen(labelText);
             text->setPos((x - xStart) * xScale - offset, PLOT_HEIGHT + 10);
@@ -63,7 +67,11 @@ void Plot::setAxes(double _xStart, double _xStop, double xMajorDivision, double 
         if (yLabelEvery == 0 || (i % yLabelEvery) == 0) {
             QGraphicsTextItem *text;
             char labelText[16];
-            sprintf(labelText, "%d", (int) (y + rounding));
+            if (yMajorDivision < 1.0) {
+                sprintf(labelText, "%.1f", y);
+            } else {
+                sprintf(labelText, "%d", (int) (y + rounding));
+            }
             text = scene->addText(labelText);
             double offset = 12.0 * strlen(labelText);
             text->setPos(-10 - offset, PLOT_HEIGHT - (y - yStart) * yScale - 10);
