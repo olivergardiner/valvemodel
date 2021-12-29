@@ -51,11 +51,11 @@ void TriodeCommonCathode::plot(Plot *plot, Device *device)
     double vgMax = device->getVg1Max();
 
     double iaMinErr = device->getIaMax();
-    double vg = vgMax / 100.0;
+    double vg = vgMax / 1000.0;
     ia = vg * 1000.0 / rk;
     double va = device->anodeVoltage(ia, -vg);;
-    for (int j = 2; j < 101; j++) {
-        vg = vgMax * j / 100.0;
+    for (int j = 2; j < 1001; j++) {
+        vg = vgMax * j / 1000.0;
         double iaNext = vg * 1000.0 / rk;
         double vaNext = device->anodeVoltage(iaNext, -vg);
         cll.append(plot->createSegment(va, ia, vaNext, iaNext, modelPen));

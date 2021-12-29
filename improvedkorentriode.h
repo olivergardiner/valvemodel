@@ -1,4 +1,5 @@
 #pragma once
+
 #include "korentriode.h"
 
 class ImprovedKorenTriode : public KorenTriode

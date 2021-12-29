@@ -1,5 +1,4 @@
-#ifndef UIBRIDGE_H
-#define UIBRIDGE_H
+#pragma once
 
 #include <QLineEdit>
 #include <QLabel>
@@ -17,5 +16,3 @@ protected:
     void updateParameter(QLabel *uiLabel, QLineEdit *uiValue, QString label, double value);
     void updateParameter(QLabel *uiLabel, QLineEdit *uiValue, Parameter *parameter);
 };
-
-#endif // UIBRIDGE_H

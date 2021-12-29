@@ -3,13 +3,25 @@
 double Model::anodeVoltage(double ia, double vg1, double vg2)
 {
     double va = 100.0;
+    double tolerance = 1.2;
 
     double iaTest = anodeCurrent(va, vg1, vg2);
     double gradient = iaTest - anodeCurrent(va - 1.0, vg1, vg2);
     double iaErr = ia - iaTest;
 
     while ((abs(iaErr) / ia) > 0.01) {
-        va = va + iaErr / gradient;
+        if (gradient != 0.0) {
+            double vaNext = va + iaErr / gradient;
+            if (vaNext < va / tolerance) { // use the gradient but limit step to 20%
+                vaNext = va / tolerance;
+            }
+            if (vaNext > tolerance * va) { // use the gradient but limit step to 20%
+                vaNext = tolerance * va;
+            }
+            va = vaNext;
+        } else {
+            va = 2 * va;
+        }
         iaTest = anodeCurrent(va, vg1, vg2);
         gradient = iaTest - anodeCurrent(va - 1.0, vg1, vg2);
         iaErr = ia - iaTest;

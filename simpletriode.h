@@ -1,5 +1,4 @@
-#ifndef SIMPLETRIODE_H
-#define SIMPLETRIODE_H
+#pragma once
 
 #include "model.h"
 
@@ -23,5 +22,3 @@ public:
 protected:
 	void setOptions();
 };
-
-#endif // SIMPLETRIODE_H
