@@ -1,5 +1,16 @@
 #include "model.h"
 
+/**
+ * @brief Model::anodeVoltage
+ * @param ia The desired anode current
+ * @param vg1 The grid voltage
+ * @param vg2 For pentodes, the screen grid voltage
+ * @return The anode voltage that will result in the desired anode current
+ *
+ * Uses a gradient based search to find the anode voltage that will result in the specified
+ * anode current given the specified grid voltages. This is provided to enable the accurate
+ * determination of a cathode load line.
+ */
 double Model::anodeVoltage(double ia, double vg1, double vg2)
 {
     double va = 100.0;
