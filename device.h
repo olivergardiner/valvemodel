@@ -20,15 +20,6 @@
 #include "korentriode.h"
 #include "improvedkorentriode.h"
 
-enum eModelType {
-    SIMPLE_TRIODE,
-    KOREN_TRIODE,
-    IMPROVED_KOREN_TRIODE,
-    KOREN_PENTODE,
-    DERK_PENTODE,
-    DERKE_PENTODE
-};
-
 enum eModelDeviceType {
     MODEL_TRIODE,
     MODEL_PENTODE
