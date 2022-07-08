@@ -12,10 +12,10 @@
 #include "ceres/ceres.h"
 #include "glog/logging.h"
 
-#include "parameter.h"
+#include "../ui/parameter.h"
+#include "../ui/uibridge.h"
+#include "../ui/plot.h"
 #include "model.h"
-#include "uibridge.h"
-#include "plot.h"
 #include "simpletriode.h"
 #include "korentriode.h"
 #include "improvedkorentriode.h"

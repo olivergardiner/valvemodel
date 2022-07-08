@@ -1,9 +1,9 @@
 #pragma once
 
-#include "uibridge.h"
-#include "device.h"
-#include "plot.h"
-#include "parameter.h"
+#include "../ui/uibridge.h"
+#include "../model/device.h"
+#include "../ui/plot.h"
+#include "../ui/parameter.h"
 
 enum eCircuitType {
     TRIODE_COMMON_CATHODE,

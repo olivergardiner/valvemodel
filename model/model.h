@@ -6,8 +6,8 @@
 #include "ceres/ceres.h"
 #include "glog/logging.h"
 
-#include "parameter.h"
-#include "uibridge.h"
+#include "../ui/parameter.h"
+#include "../ui/uibridge.h"
 
 using ceres::AutoDiffCostFunction;
 using ceres::CostFunction;
