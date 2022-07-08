@@ -59,8 +59,21 @@ void KorenTriode::fromJson(QJsonObject source)
     }
 }
 
-void KorenTriode::toJson(QJsonObject destination)
+void KorenTriode::toJson(QJsonObject &destination, double vg1Max, double vg2Max)
 {
+    QJsonObject model;
+    model["kg"] = parameter[TRI_KG]->getValue();
+    model["mu"] = parameter[TRI_MU]->getValue();
+    model["alpha"] = parameter[TRI_ALPHA]->getValue();
+    model["vct"] = parameter[TRI_VCT]->getValue();
+    model["kp"] = parameter[TRI_KP]->getValue();
+    model["kvb"] = parameter[TRI_KVB]->getValue();
+
+    QJsonObject triode;
+    triode["vg1Max"] = vg1Max;
+    triode["koren"] = model;
+
+    destination["triode"] = triode;
 }
 
 void KorenTriode::updateUI(QLabel *labels[], QLineEdit *values[])

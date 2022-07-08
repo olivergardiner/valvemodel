@@ -79,7 +79,7 @@ public:
      * @brief toJson writes the current model parameters to a Json object
      * @param destination The Json object to write to
      */
-    virtual void toJson(QJsonObject destination) = 0;
+    virtual void toJson(QJsonObject &destination, double vg1Max, double vg2Max = 0) = 0;
     /**
      * @brief anodeCurrent calculates the modelled anode current
      * @param va The anode voltage

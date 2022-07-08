@@ -71,8 +71,19 @@ void SimpleTriode::fromJson(QJsonObject source)
     }
 }
 
-void SimpleTriode::toJson(QJsonObject destination)
+void SimpleTriode::toJson(QJsonObject &destination, double vg1Max, double vg2Max)
 {
+    QJsonObject model;
+    model["kg"] = parameter[TRI_KG]->getValue();
+    model["mu"] = parameter[TRI_MU]->getValue();
+    model["alpha"] = parameter[TRI_ALPHA]->getValue();
+    model["vct"] = parameter[TRI_VCT]->getValue();
+
+    QJsonObject triode;
+    triode["vg1Max"] = vg1Max;
+    triode["simple"] = model;
+
+    destination["triode"] = triode;
 }
 
 void SimpleTriode::updateUI(QLabel *labels[], QLineEdit *values[])
